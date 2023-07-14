@@ -14,3 +14,12 @@ class DateExample(models.Model):
 
 class NullExample(models.Model):
     col = models.CharField(max_length=10, blank=True, null=True)
+
+# One to Many RelationShip
+
+class Language(models.Model):
+    name = models.CharField(max_length=10)
+
+class FrameWork(models.Model):
+    name = models.CharField(max_length=10)
+    Language = models.ForeignKey(Language, on_delete=models.CASCADE)
