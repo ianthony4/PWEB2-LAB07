@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class Lab07ChaisaConfig(AppConfig):
+class PdfConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'Lab07Chaisa'
+    name = 'pdf'
