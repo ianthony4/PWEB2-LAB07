@@ -19,12 +19,13 @@ class NullExample(models.Model):
 
 class Language(models.Model):
     name = models.CharField(max_length=10)
+    #Para Quary one to Many
     def __str__(self):
         return self.name
 
 class FrameWork(models.Model):
     name = models.CharField(max_length=10)
     Language = models.ForeignKey(Language, on_delete=models.CASCADE)
-
+    #Para Queary one to Many
     def __str__(self):
         return self.name
