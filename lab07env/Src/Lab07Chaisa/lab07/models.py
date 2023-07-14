@@ -43,3 +43,23 @@ class Character(models.Model):
     def __str__(self):
         return self.name
     
+# Many to Many Query
+
+#>>> Character.objects.filter(movies__name='Civil War')
+#<QuerySet [<Character: Captain America>]>
+#>>> Movie.objects.filter(character__name='Captain America')
+#<QuerySet [<Movie: Avengers>, <Movie: Civil War>, <Movie: Winter Soldier>]>
+#>>> captain_america = Character.objects.get(name='Captain America')
+#>>> captain_america
+#<Character: Captain America>
+#>>> captain_america.movies.all()
+#<QuerySet [<Movie: Avengers>, <Movie: Civil War>, <Movie: Winter Soldier>]>
+#>>> avengers = Movie.objects.get(name='Avengers')
+#>>> avengers.character_set.all()
+#<QuerySet [<Character: Captain America>, <Character: Thor>]>
+#>>> avengers = Movie.objects.get(name='Avengers')
+#>>> avengers
+#<Movie: Avengers>
+#>>> avengers.character_set.all()
+#<QuerySet [<Character: Captain America>, <Character: Thor>]>
+#>>>
