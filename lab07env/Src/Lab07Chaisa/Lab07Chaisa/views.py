@@ -13,7 +13,8 @@ class GeneratePDF(View):
             "today":"Today", 
         }
         html = template.render(context)
-        return HttpResponse(html)
+        pdf = render_to_pdf('invoice.html',context)
+        return HttpResponse(pdf, content_type='application/pdf')
     
 #    def generate_view(self, request, *args, **kwargs):
 #        template = get_template('invoice.html')
