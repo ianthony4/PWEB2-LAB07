@@ -16,11 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from .views import GeneratePDF
-
-
+from .views import enviar_correo
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pdf/', GeneratePDF.as_view()),
+    path('enviar-correo/', enviar_correo, name='enviar_correo'),
 ]

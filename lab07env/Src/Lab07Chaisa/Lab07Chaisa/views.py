@@ -2,6 +2,18 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.template.loader import get_template
 from .utils import render_to_pdf
+from django.core.mail import send_mail
+from django.http import HttpResponse
+
+def enviar_correo(request):
+    subject = 'Hola desde Django'
+    message = 'Este es un ejemplo de envío de correo desde Django.'
+    from_email = 'anthonyleo2001@gmail.com'
+    recipient_list = ['wosoke8405@kameili.com']
+    
+    send_mail(subject, message, from_email, recipient_list)
+    
+    return HttpResponse('<h1>Correo enviado</h1>')
 
 class GeneratePDF(View):
     def get(self, request, *args, **kwargs):
@@ -34,3 +46,6 @@ class GeneratePDF(View):
 #        }
 #        html = template.render(context)
 #        return HttpResponse(html)
+
+
+
